@@ -47,6 +47,7 @@ class App extends Component {
 
   tweetStateHandler(tweets) {
     this.setState({tweets: tweets});
+    //console.log(this.state);
   }
 
   render() {

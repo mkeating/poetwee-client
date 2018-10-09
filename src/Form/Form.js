@@ -33,7 +33,7 @@ class Form extends Component {
 
     const url = 'https://limitless-anchorage-99622.herokuapp.com/tweets'
 
-    fetch( 'http://localhost:5000/tweets', {
+    fetch( url, {
    
       method: 'POST',
       headers: {"Content-Type": "application/json"},
@@ -41,13 +41,9 @@ class Form extends Component {
     })
       .then(res =>{
         return res.json()
-      }).then(myJson =>{
-        console.log(JSON.stringify(myJson))
       })
       /*.then(res => {
         if(!res.ok){
-          //console.log('error');
-          //console.log(res);
           //turn off loading     
           this.props.loadingStateHandler();
           //bring back form and display error
@@ -58,24 +54,26 @@ class Form extends Component {
          else {
           return res.json();
          }  
-      })
+      })*/
       .then(results => {
         if(results){
           //turn off loading
           this.props.loadingStateHandler();
-          console.log(results);
+         // console.log(results);
           if(results[0].error){
             console.log('error from twitter'); //works; build into UI
             console.log(results[0].error)
             this.props.formStateHandler();
             this.props.errorHandler(`There was an error from Twitter! ${results[0].error}`);
           } else{
+
             this.props.tweetStateHandler(results);
+            this.props.resultsStateHandler();
             
           }
         }
-      });*/     
-  }
+      });    
+  }  
 
   render() {
     return (
