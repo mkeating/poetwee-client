@@ -1,0 +1,13 @@
+.item {
+  min-height: 120px;
+  height: 100%;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+/*# sourceMappingURL=Item.css.map */

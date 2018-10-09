@@ -1,0 +1,52 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: loading-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.poetwee-logo {
+  max-width: 256px;
+  image-rendering: auto;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes loading-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  font-size: 16px;
+  background-color: #00aced;
+  color: white;
+}
+
+.pt-button {
+  background: none;
+  border: 1px solid white;
+  color: white;
+  line-height: 2em;
+  margin: 1em;
+  min-width: 100px;
+  cursor: pointer;
+  font-size: 2em;
+  padding-left: 1em;
+  padding-right: 1em;
+  border-radius: 15px;
+}

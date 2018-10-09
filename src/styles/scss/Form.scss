@@ -1,0 +1,27 @@
+
+.form-container {
+	max-width: 300px;
+	margin: 0 auto;
+}
+
+input {
+	border: none;
+	width: 100%;
+	border-bottom: 1px solid white;
+	background:none;
+	color:white;
+	font-size: 2rem;
+	display:inline-block;
+}
+
+input:focus {
+	outline:none;
+}
+
+.submit-button {
+	border: 1px solid white;
+	background:none;
+	color:white;
+	margin-top: 1rem;
+	cursor: pointer;
+}

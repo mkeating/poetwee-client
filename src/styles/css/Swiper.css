@@ -1,0 +1,60 @@
+.swiper {
+  width: 80%;
+  position: relative;
+  margin: 2em auto;
+  border: 1px solid white; }
+
+.button {
+  height: 50px;
+  width: 50px;
+  display: inline;
+  margin: 1em;
+  border: 1px solid black; }
+
+.item-container {
+  position: relative;
+  overflow-x: hidden;
+  height: 100%;
+  width: 100%; }
+
+.leftButton {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  min-width: 50px;
+  z-index: 1000;
+  cursor: pointer;
+  font-size: 2em;
+  -webkit-transition: all 1s;
+  /* Safari */
+  transition: all 1s;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.leftButton:hover {
+  background: white;
+  color: #00aced; }
+
+.rightButton {
+  position: absolute;
+  left: calc(100% - 50px);
+  top: 0;
+  height: 100%;
+  min-width: 50px;
+  z-index: 1000;
+  cursor: pointer;
+  font-size: 2em;
+  -webkit-transition: all 1s;
+  /* Safari */
+  transition: all 1s;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.rightButton:hover {
+  background: white;
+  color: #00aced; }
+
+/*# sourceMappingURL=Swiper.css.map */
