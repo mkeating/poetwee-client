@@ -21,11 +21,12 @@ class App extends Component {
       errorMessage: '',
     }
 
-    this.formStateHandler = this.formStateHandler.bind(this);
-    this.resultsStateHandler = this.resultsStateHandler.bind(this);
-    this.tweetStateHandler = this.tweetStateHandler.bind(this);
-    this.loadingStateHandler = this.loadingStateHandler.bind(this);
-    this.errorHandler = this.errorHandler.bind(this);
+    // bindings
+    this.formStateHandler     = this.formStateHandler.bind(this);
+    this.resultsStateHandler  = this.resultsStateHandler.bind(this);
+    this.tweetStateHandler    = this.tweetStateHandler.bind(this);
+    this.loadingStateHandler  = this.loadingStateHandler.bind(this);
+    this.errorHandler         = this.errorHandler.bind(this);
   }
 
   errorHandler(msg) {
@@ -53,24 +54,23 @@ class App extends Component {
   render() {
 
     if(this.state.isForm) {
-      body = 
-       
-      <Form 
-        formStateHandler    = {this.formStateHandler}
-        resultsStateHandler = {this.resultsStateHandler}
-        tweetStateHandler   = {this.tweetStateHandler}
-        loadingStateHandler = {this.loadingStateHandler}
-        errorHandler        = {this.errorHandler}
-        />
+      body = <Form 
+                formStateHandler    = {this.formStateHandler}
+                resultsStateHandler = {this.resultsStateHandler}
+                tweetStateHandler   = {this.tweetStateHandler}
+                loadingStateHandler = {this.loadingStateHandler}
+                errorHandler        = {this.errorHandler}
+              />
       
     }
 
     if(this.state.isResults){
       body = <SubPage 
-        formStateHandler    = {this.formStateHandler}
-        resultsStateHandler = {this.resultsStateHandler}
-        tweetStateHandler = {this.tweetStateHandler}
-        tweets = {this.state.tweets}/>
+                formStateHandler    = {this.formStateHandler}
+                resultsStateHandler = {this.resultsStateHandler}
+                tweetStateHandler   = {this.tweetStateHandler}
+                tweets              = {this.state.tweets}
+              />
     }
 
     if(this.state.isLoading){
@@ -80,15 +80,11 @@ class App extends Component {
     console.log(this.state.errorMessage);
 
     return (
-
-
       <div className="App">
         <h1><img src = {require('./poetwee-logo.png')} className="poetwee-logo"/></h1>
           <div className="error"> {this.state.errorMessage} </div>
-          {body}
-        
+          {body} 
       </div>
-     
     );
   }
 }

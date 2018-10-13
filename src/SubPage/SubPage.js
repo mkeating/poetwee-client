@@ -13,8 +13,10 @@ class SubPage extends Component {
       poemComplete: false,
     };
 
-    this.updateCurrentTweets = this.updateCurrentTweets.bind(this);
-    this.checkChildren = this.checkChildren.bind(this);
+    // bindings
+    this.updateCurrentTweets  = this.updateCurrentTweets.bind(this);
+    this.checkChildren        = this.checkChildren.bind(this);
+    this.startOver            = this.startOver.bind(this);
 
     this.finalTweets = {};
   }
@@ -32,11 +34,9 @@ class SubPage extends Component {
   startOver(){
     this.props.formStateHandler();
     this.props.resultsStateHandler();
-
   }
 
   render() {
-
 
     if (!this.state.poemComplete){
 
@@ -47,14 +47,19 @@ class SubPage extends Component {
       let swipers = this.props.tweets.map((item, index) => {
       
         return(
-              <Swiper tweets={item} key={'swiper-' + index}  unique={'swiper' + index} updateCurrentTweets={this.updateCurrentTweets} 
+              <Swiper 
+                tweets={item} 
+                key={'swiper-' + index}  
+                unique={'swiper' + index} 
+                updateCurrentTweets={this.updateCurrentTweets} 
               />
         )
       });
 
-      body = <div>{swipers}
-                  <button onClick={this.props.pageStateHandler} className="pt-button"> Start over </button>
-                  <button onClick={this.checkChildren} className="pt-button"> Done! </button>
+      body =  <div>
+                {swipers}
+                <button onClick={this.startOver} className="pt-button"> Start over </button>
+                <button onClick={this.checkChildren} className="pt-button"> Done! </button>
               </div>
   
 

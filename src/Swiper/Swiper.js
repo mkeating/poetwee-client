@@ -3,6 +3,8 @@ import SwipeableViews from 'react-swipeable-views';
 import { virtualize } from 'react-swipeable-views-utils';
 import mod from 'react-swipeable-views-core/lib/mod';
 
+//https://react-swipeable-views.com/getting-started/usage/
+
 const VirtualizeSwipeableViews = virtualize(SwipeableViews);
 
 //TODO: prevent multiple quick clicks
@@ -34,7 +36,9 @@ class Swiper extends Component {
 
     const slideRenderer = ({key, index}) => {
       return(
-        <div key={index} className="item" dangerouslySetInnerHTML={{ __html: this.props.tweets[(mod(index, this.props.tweets.length))] }}>         
+        <div  key={index} 
+              className="item" 
+              dangerouslySetInnerHTML={{ __html: this.props.tweets[(mod(index, this.props.tweets.length))] }}>         
         </div>
         );
     }
@@ -42,7 +46,8 @@ class Swiper extends Component {
     return (
         <div>
           <div className="swiper">
-            <div className="leftButton" onClick={() => this.setState({currentIndex: this.state.currentIndex - 1})}>&#60;</div> 
+            <div  className="leftButton" 
+                  onClick={() => this.setState({currentIndex: this.state.currentIndex - 1})}>◀</div> 
             
             <VirtualizeSwipeableViews
               enableMouseEvents={true}
@@ -53,7 +58,7 @@ class Swiper extends Component {
               >
             </VirtualizeSwipeableViews>
             
-            <div className = "rightButton" onClick={() => this.setState({currentIndex: this.state.currentIndex + 1})}>&#62;</div>
+            <div className = "rightButton" onClick={() => this.setState({currentIndex: this.state.currentIndex + 1})}>▶</div>
           </div>
         </div>
     );
