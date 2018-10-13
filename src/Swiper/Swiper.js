@@ -8,7 +8,6 @@ import mod from 'react-swipeable-views-core/lib/mod';
 const VirtualizeSwipeableViews = virtualize(SwipeableViews);
 
 //TODO: prevent multiple quick clicks
-//TODO: handle looping around; swipeable views uses negative indexes which is 'undefined' when used as a key for props.tweets
 
 class Swiper extends Component {
 
@@ -26,6 +25,7 @@ class Swiper extends Component {
   }
 
   componentDidUpdate(){
+    //using mod to deal with 'wrapping around' when going to negative indexes
     this.props.updateCurrentTweets(this.props.unique, this.props.tweets[(mod(this.state.currentIndex, this.props.tweets.length))]);
     console.log(this.props.unique);
     console.log(this.props.tweets[(mod(this.state.currentIndex, this.props.tweets.length))]);
@@ -35,19 +35,19 @@ class Swiper extends Component {
   render() {
 
     const slideRenderer = ({key, index}) => {
-      return(
-        <div  key={index} 
-              className="item" 
-              dangerouslySetInnerHTML={{ __html: this.props.tweets[(mod(index, this.props.tweets.length))] }}>         
+      return (
+        <div
+          key={index} 
+          className="item" 
+          dangerouslySetInnerHTML={{ __html: this.props.tweets[(mod(index, this.props.tweets.length))] }}>         
         </div>
-        );
+      );
     }
 
     return (
         <div>
           <div className="swiper">
-            <div  className="leftButton" 
-                  onClick={() => this.setState({currentIndex: this.state.currentIndex - 1})}>◀</div> 
+            <div className="leftButton" onClick={() => this.setState({currentIndex: this.state.currentIndex - 1})}>◀</div> 
             
             <VirtualizeSwipeableViews
               enableMouseEvents={true}
@@ -58,7 +58,7 @@ class Swiper extends Component {
               >
             </VirtualizeSwipeableViews>
             
-            <div className = "rightButton" onClick={() => this.setState({currentIndex: this.state.currentIndex + 1})}>▶</div>
+            <div className="rightButton" onClick={() => this.setState({currentIndex: this.state.currentIndex + 1})}>▶</div>
           </div>
         </div>
     );

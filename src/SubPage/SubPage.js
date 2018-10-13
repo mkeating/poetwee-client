@@ -2,11 +2,16 @@ import React, { Component } from 'react';
 
 import Swiper from '../Swiper/Swiper';
 
+
+// TODO: should probably move this to the class
+
+
 let body = [];
 
 class SubPage extends Component {
 
   constructor(props) {
+    
     super(props);
 
     this.state = {
@@ -22,7 +27,7 @@ class SubPage extends Component {
   }
 
 
-  //This is passed to each Swiper so that it can report back its currently shown tweet
+  //This is passed to each Swiper so that it can report back its currently shown tweet, to be compiled once the poem is complete
   updateCurrentTweets(key, tweet){
     this.finalTweets[key] = tweet;
   }
@@ -61,8 +66,6 @@ class SubPage extends Component {
                 <button onClick={this.startOver} className="pt-button"> Start over </button>
                 <button onClick={this.checkChildren} className="pt-button"> Done! </button>
               </div>
-  
-
     } else {
       let finalTweets = this.finalTweets;
       let completePoem = []
@@ -73,10 +76,8 @@ class SubPage extends Component {
               <h2>Your brilliant poetwee:</h2>
               {completePoem}
               <button onClick={this.startOver} className="pt-button"> Start over </button>
-            </div>
-            
+            </div>       
     }
-    
 
     return (
       <div>     

@@ -80,7 +80,7 @@ class Form extends Component {
       <div className="form-container">
 
       <div>{this.state.errorMessage}</div>
-      <form onSubmit = {this.handleSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <label> 
           <input type="text" value={this.state.value} name="searchTerms" onChange={this.handleChange} autoFocus/>
         </label>
